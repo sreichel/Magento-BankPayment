@@ -18,8 +18,8 @@
 
 class Ffuenf_BankPayment_Block_Adminhtml_BankAccount extends Mage_Adminhtml_Block_System_Config_Form_Field
 {
-    protected $addRowButtonHtml = array();
-    protected $removeRowButtonHtml = array();
+    protected $_addRowButtonHtml = array();
+    protected $_removeRowButtonHtml = array();
 
     /**
      * @param string Varien_Data_Form_Element_Abstract
@@ -32,12 +32,8 @@ class Ffuenf_BankPayment_Block_Adminhtml_BankAccount extends Mage_Adminhtml_Bloc
         $html .= $this->_getRowTemplateHtml();
         $html .= '</div>';
         $html .= '<ul id="bank_account_container">';
-        if ($this->_getValue('account_holder')) {
-            foreach ($this->_getValue('account_holder') as $i => $f) {
-                if ($i) {
-                    $html .= $this->_getRowTemplateHtml($i);
-                }
-            }
+        if ($accountHolder = $this->_getValue('account_holder')) {
+            $html .= $this->_getRowTemplateHtml($accountHolder);
         }
         $html .= '</ul>';
         $html .= $this->_getAddRowButtonHtml('bank_account_container', 'bank_account_template', $this->__('Add Bank Account'));
@@ -105,8 +101,8 @@ class Ffuenf_BankPayment_Block_Adminhtml_BankAccount extends Mage_Adminhtml_Bloc
      */
     protected function _getAddRowButtonHtml($container, $template, $title = 'Add')
     {
-        if (!isset($this->addRowButtonHtml[$container])) {
-            $this->addRowButtonHtml[$container] = $this->getLayout()->createBlock('adminhtml/widget_button')
+        if (!isset($this->_addRowButtonHtml[$container])) {
+            $this->_addRowButtonHtml[$container] = $this->getLayout()->createBlock('adminhtml/widget_button')
                 ->setType('button')
                 ->setClass('add ' . $this->_getDisabled())
                 ->setLabel($this->__($title))
@@ -114,7 +110,7 @@ class Ffuenf_BankPayment_Block_Adminhtml_BankAccount extends Mage_Adminhtml_Bloc
                 ->setDisabled($this->_getDisabled())
                 ->toHtml();
         }
-        return $this->addRowButtonHtml[$container];
+        return $this->_addRowButtonHtml[$container];
     }
 
     /**
@@ -124,8 +120,8 @@ class Ffuenf_BankPayment_Block_Adminhtml_BankAccount extends Mage_Adminhtml_Bloc
      */
     protected function _getRemoveRowButtonHtml($selector = 'li', $title = 'Delete Account')
     {
-        if (!empty($this->removeRowButtonHtml)) {
-            $this->removeRowButtonHtml = $this->getLayout()->createBlock('adminhtml/widget_button')
+        if (!empty($this->_removeRowButtonHtml)) {
+            $this->_removeRowButtonHtml = $this->getLayout()->createBlock('adminhtml/widget_button')
                 ->setType('button')
                 ->setClass('delete v-middle ' . $this->_getDisabled())
                 ->setLabel($this->__($title))
@@ -133,6 +129,6 @@ class Ffuenf_BankPayment_Block_Adminhtml_BankAccount extends Mage_Adminhtml_Bloc
                 ->setDisabled($this->_getDisabled())
                 ->toHtml();
         }
-        return $this->removeRowButtonHtml;
+        return $this->_removeRowButtonHtml;
     }
 }

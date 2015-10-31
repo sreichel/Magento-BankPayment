@@ -20,6 +20,7 @@ Features
 --------
 
 * prepayment payment method
+* SEPA ready
 * allow to display multiple bank accounts
 * [HOT] show bank accounts dependent on order currency
 * define minimum order total
