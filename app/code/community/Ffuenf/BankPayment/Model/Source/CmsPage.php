@@ -18,6 +18,9 @@
 
 class Ffuenf_BankPayment_Model_Source_CmsPage extends Mage_Adminhtml_Model_System_Config_Source_Cms_Page
 {
+    /**
+     * @return array
+     */
     public function toOptionArray()
     {
         if (!$this->_options) {

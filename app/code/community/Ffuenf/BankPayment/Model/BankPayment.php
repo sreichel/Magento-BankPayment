@@ -19,10 +19,10 @@
 class Ffuenf_BankPayment_Model_BankPayment extends Mage_Payment_Model_Method_Abstract
 {
     /**
-    * unique internal payment method identifier
-    *
-    * @var string [a-z0-9_]
-    */
+     * unique internal payment method identifier
+     *
+     * @var string [a-z0-9_]
+     */
     protected $_code = 'bankpayment';
 
     protected $_formBlockType = 'bankpayment/form';
@@ -31,10 +31,10 @@ class Ffuenf_BankPayment_Model_BankPayment extends Mage_Payment_Model_Method_Abs
     protected $_storeId;
 
     /**
-    * get the correct store id
-    *
-    * @return int
-    */
+     * get the correct store id
+     *
+     * @return int
+     */
     protected function getStoreId()
     {
         $this->_storeId = $paymentInfo->getQuote()->getStoreId();
@@ -47,8 +47,8 @@ class Ffuenf_BankPayment_Model_BankPayment extends Mage_Payment_Model_Method_Abs
     }
 
     /**
-    * support BC for old templates
-    */
+     * @return string|nil
+     */
     public function getAccountHolder()
     {
         if ($accounts = $this->getAccounts()) {
@@ -58,8 +58,8 @@ class Ffuenf_BankPayment_Model_BankPayment extends Mage_Payment_Model_Method_Abs
     }
 
     /**
-    * support BC for old templates
-    */
+     * @return string|nil
+     */
     public function getBankName()
     {
         if ($accounts = $this->getAccounts()) {
@@ -69,8 +69,8 @@ class Ffuenf_BankPayment_Model_BankPayment extends Mage_Payment_Model_Method_Abs
     }
 
     /**
-    * support BC for old templates
-    */
+     * @return string|nil
+     */
     public function getIBAN()
     {
         if ($accounts = $this->getAccounts()) {
@@ -80,8 +80,8 @@ class Ffuenf_BankPayment_Model_BankPayment extends Mage_Payment_Model_Method_Abs
     }
 
     /**
-    * support BC for old templates
-    */
+     * @return string|nil
+     */
     public function getBIC()
     {
         if ($accounts = $this->getAccounts()) {
@@ -91,8 +91,8 @@ class Ffuenf_BankPayment_Model_BankPayment extends Mage_Payment_Model_Method_Abs
     }
 
     /**
-    * support BC for old templates
-    */
+     * @return string|nil
+     */
     public function getCurrencies()
     {
         if ($accounts = $this->getAccounts()) {
@@ -101,12 +101,18 @@ class Ffuenf_BankPayment_Model_BankPayment extends Mage_Payment_Model_Method_Abs
         return null;
     }
 
+    /**
+     * @return string|nil
+     */
     public function getPayWithinXDays()
     {
         $storeId = $this->getStoreId();
         return Mage::getStoreConfig('payment/bankpayment/paywithinxdays', $storeId);
     }
 
+    /**
+     * @return string
+     */
     public function getCustomText($addNl2Br = true)
     {
         $storeId = $this->getStoreId();
@@ -117,6 +123,9 @@ class Ffuenf_BankPayment_Model_BankPayment extends Mage_Payment_Model_Method_Abs
         return $customText;
     }
 
+    /**
+     * @return array
+     */
     public function getAccounts()
     {
         if (!$this->_accounts) {
@@ -130,7 +139,7 @@ class Ffuenf_BankPayment_Model_BankPayment extends Mage_Payment_Model_Method_Abs
                     if ($k) {
                         $account = new Varien_Object();
                         foreach ($fields as $field) {
-                            $account->setData($field,$accounts[$field][$i]);
+                            $account->setData($field, $accounts[$field][$i]);
                         }
                         $this->_accounts[] = $account;
                     }

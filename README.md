@@ -32,7 +32,8 @@ Features
 * [HOT] show custom text in order confirmation emails for specific billing countries
 * show link to CMS-Page instead of displaying account details in checkout
 
-*custom text in order confirmation emails*
+_custom text in order confirmation emails_
+
 To show the custom text in order confirmation emails, you have to adjust your transactional email templates accordingly.
 We reccoment to add `{{layout handle="sales_email_order_payment_message"}}` just below `{{var payment_html}}` in "order new" and "order new guest" templates.
 By default the extension includes the following message (you may adjust it to your own in template/bankpayment/email/message.phtml):
@@ -42,7 +43,8 @@ Please use the following reference on your bank transfer:
 [Order-ID]
 ```
 
-*show custom text in order confirmation emails for specific billing countries*
+_show custom text in order confirmation emails for specific billing countries_
+
 This might be useful if customers from foreign countries doesn't pay attention to additional fees for international transfers.
 See template/bankpayment/email/message.phtml for a reference implementation.
 
