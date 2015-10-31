@@ -16,6 +16,7 @@
  * @license    http://opensource.org/licenses/mit-license.php MIT License
  */
 ?>
+<?php $quoteCurrencyCode = $this->getQuoteCurrencyCode(); ?>
 <fieldset class="form-list">
     <ul id="payment_form_<?php echo $this->getMethodCode(); ?>" style="display:none">
         <li>
@@ -24,48 +25,42 @@
                 <p><?php echo $this->__('More information on this paymentmethod can be found <a target="_blank" href="%s">here</a>.', $_cmsPage) ?></p>
             </div>
         <?php elseif ($_accounts = $this->getAccounts()): ?>
-            <?php if (count($_accounts) == 1): ?>
-                <?php if ($this->getMethod()->getPayWithinXDays() > 0): ?>
-                    <?php echo $this->__('Please transfer the money within %s days to the following bank account', $this->getMethod()->getPayWithinXDays()); ?>:
-                <?php else: ?>
-                    <?php echo $this->__('Please transfer the money to the following bank account'); ?>:
+            <?php $first = true; ?>
+            <?php foreach($_accounts as $_account): ?>
+                <?php if ($quoteCurrencyCode != '' && in_array($quoteCurrencyCode, $_account->getCurrencies())): ?>
+                    <?php if ($this->getMethod()->getPayWithinXDays() > 0): ?>
+                        <?php echo $this->__('Please transfer the money within %s days to the following bank account', $this->getMethod()->getPayWithinXDays()); ?>:
+                    <?php else: ?>
+                        <?php echo $this->__('Please transfer the money to the following bank account'); ?>:
+                    <?php endif; ?>
+                    <br /><br />
+                    <div class="input-box">
+                        <?php if (!$first): ?>
+                        <br /><hr/><br />
+                        <?php endif; $first = false; ?>
+                        <table>
+                            <tbody>
+                                <?php if ($_accountHolder = $_account->getAccountHolder()): ?>
+                                    <tr><td><label><?php echo $this->__('Account holder') ?></label>: </td><td><?php echo $_accountHolder ?></td></tr>
+                                <?php endif; ?>
+                                <?php if ($_bankName = $_account->getBankName()): ?>
+                                    <tr><td><label><?php echo $this->__('Bank name') ?></label>: </td><td><?php echo $_bankName ?></td></tr>
+                                <?php endif; ?>
+                                <?php if ($_iban = $_account->getIban()): ?>
+                                    <tr><td><label><?php echo $this->__('IBAN') ?></label>: </td><td><?php echo $_iban ?></td></tr>
+                                <?php endif; ?>
+                                <?php if ($_bic = $_account->getBic()): ?>
+                                    <tr><td><label><?php echo $this->__('BIC') ?></label>: </td><td><?php echo $_bic ?></td></tr>
+                                <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
                 <?php endif; ?>
-            <?php else: ?>
-                <?php if ($this->getMethod()->getPayWithinXDays() > 0): ?>
-                    <?php echo $this->__('Please transfer the money within %s days to one of the following bank accounts', $this->getMethod()->getPayWithinXDays()); ?>:
-                <?php else: ?>
-                    <?php echo $this->__('Please transfer the money to one of the following bank accounts'); ?>:
-                <?php endif; ?>
+            <?php endforeach; ?>
+            <?php if ($_customText = $this->getMethod()->getCustomText()): ?>
+                <br />
+                <?php echo $_customText ?><br />
             <?php endif; ?>
-            <br /><br />
-            <div class="input-box">
-                <?php $first = true; ?>
-                <?php foreach($_accounts as $_account): ?>
-                    <?php if (!$first): ?>
-                    <br /><hr/><br />
-                    <?php endif; $first = false; ?>
-                    <table>
-                        <tbody>
-                            <?php if ($_accountHolder = $_account->getAccountHolder()): ?>
-                                <tr><td><label><?php echo $this->__('Account holder') ?></label>: </td><td><?php echo $_accountHolder ?></td></tr>
-                            <?php endif; ?>
-                            <?php if ($_bankName = $_account->getBankName()): ?>
-                                <tr><td><label><?php echo $this->__('Bank name') ?></label>: </td><td><?php echo $_bankName ?></td></tr>
-                            <?php endif; ?>
-                            <?php if ($_iban = $_account->getIban()): ?>
-                                <tr><td><label><?php echo $this->__('IBAN') ?></label>: </td><td><?php echo $_iban ?></td></tr>
-                            <?php endif; ?>
-                            <?php if ($_bic = $_account->getBic()): ?>
-                                <tr><td><label><?php echo $this->__('BIC') ?></label>: </td><td><?php echo $_bic ?></td></tr>
-                            <?php endif; ?>
-                        </tbody>
-                    </table>
-                <?php endforeach; ?>
-                <?php if ($_customText = $this->getMethod()->getCustomText()): ?>
-                    <br />
-                    <?php echo $_customText ?><br />
-                <?php endif; ?>
-            </div>
         <?php endif; ?>
         </li>
     </ul>
