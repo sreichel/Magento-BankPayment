@@ -1,57 +1,127 @@
-BankPayment
-===========
+Ffuenf_BankPayment
+==================
+[![GitHub tag](https://img.shields.io/github/tag/ffuenf/Ffuenf_BankPayment.svg)][tag]
+[![Build Status](https://img.shields.io/travis/ffuenf/Ffuenf_BankPayment.svg)][travis]
+[![Code Quality](https://scrutinizer-ci.com/g/ffuenf/Ffuenf_BankPayment/badges/quality-score.png)][code_quality]
+[![Code Coverage](https://scrutinizer-ci.com/g/ffuenf/Ffuenf_BankPayment/badges/coverage.png)][code_coverage]
+[![Code Climate](https://codeclimate.com/github/ffuenf/Ffuenf_BankPayment/badges/gpa.svg)][codeclimate_gpa]
+[![PayPal Donate](https://img.shields.io/badge/paypal-donate-blue.svg)][paypal_donate]
 
-The module allows you to enter one or more bank accounts in the payment configuration which are displayed to the customer during the checkout and the order email to notify him where to transfer the money.
+[tag]: https://github.com/ffuenf/Ffuenf_BankPayment
+[travis]: https://travis-ci.org/ffuenf/Ffuenf_BankPayment
+[code_quality]: https://scrutinizer-ci.com/g/ffuenf/Ffuenf_BankPayment
+[code_coverage]: https://scrutinizer-ci.com/g/ffuenf/Ffuenf_BankPayment
+[codeclimate_gpa]: https://codeclimate.com/github/ffuenf/Ffuenf_BankPayment
+[paypal_donate]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J2PQS2WLT2Y8W&item_name=Magento%20Extension%3a%20Ffuenf_BankPayment&item_number=Ffuenf_BankPayment&currency_code=EUR
 
-This extension is maintained by PHOENIX MEDIA, Magento Enterprise Partner in Stuttgart and Vienna.
- 
+This is a extension for Magento Community Edition that adds the payment method prepayment by bank transfer.
 
-Changelog
----------
+Features
+--------
 
-From 1.1.0 see changelog in Release Notes tab.
+* prepayment payment method
+* allow to display multiple bank accounts
+* [HOT] show bank accounts dependent on order currency
+* define minimum order total
+* define maximum order total
+* show bank accounts in PDF
+* pay within X days
+* show custom text in checkout
+* show custom text in PDF
+* [HOT] show custom text in order confirmation emails
+* [HOT] show custom text in order confirmation emails for specific billing countries
+* show link to CMS-Page instead of displaying account details in checkout
 
-1.0.0:
-- version 0.3.4 is considered as stable
+*custom text in order confirmation emails*
+To show the custom text in order confirmation emails, you have to adjust your transactional email templates accordingly.
+We reccoment to add `{{layout handle="sales_email_order_payment_message"}}` just below `{{var payment_html}}` in "order new" and "order new guest" templates.
+By default the extension includes the following message (you may adjust it to your own in template/bankpayment/email/message.phtml):
+```
+***IMPORTANT***
+Please use the following reference on your bank transfer:
+[Order-ID]
+```
 
-0.3.4:
-- added configuration options to hide bank accounts and customer text in PDF
+*show custom text in order confirmation emails for specific billing countries*
+This might be useful if customers from foreign countries doesn't pay attention to additional fees for international transfers.
+See template/bankpayment/email/message.phtml for a reference implementation.
 
-0.3.3:
-- Fixed store specific accounts' configuration handling in the backend
+Platform
+--------
 
-0.3.2:
-- Enabled store specific configuration for some values
+The following versions are supported and tested:
 
-0.3.1:
-- Added missing PDF template
+* Magento Community Edition 1.6.2.0
+* Magento Community Edition 1.7.0.2
+* Magento Community Edition 1.8.1.0
+* Magento Community Edition 1.9.1.1
+* Magento Community Edition 1.9.2.1
+* Magento Community Edition 1.9.2.2
 
-0.3.0:
-- Magento 1.4 support
-- Support for multiple bank accounts
-- Support for CMS notification page (adopts idea from Market Ready Germany package (symmetrics))
-- Min/max order total configuration option
-- Additional translations for DK, ES, FR (thanks to the community)
-- Configurable on store view level </span></span>
+Other versions are assumed to work.
 
-0.2.5:
-- added Polish locale</span>
+Compatibility
+-------------
 
-0.2.4:
-- added Greek and Italian locales</span></span>
+This Extension is a fork of [Magento_BankPayment](https://github.com/PHOENIX-MEDIA/Magento-BankPayment) and uses the same namespace for its configuration.
+In older versions of Magento there may be also a Mage_BankPayment core extension which is not compatible.
+Please do not use this extension in any combination with the above!
 
-0.2.3:
-- added Dutch and Portuguese (Brazil) locales</span></span>
+Installation
+------------
 
-0.2.2:
-- custom text field converted to custom text area (multiline)
-- bank data is now aligned in a table</span></span>
+Use [modman](https://github.com/colinmollenhour/modman) to install:
+```
+modman init
+modman clone https://github.com/ffuenf/Ffuenf_BankPayment
+```
 
-0.2.1:
-- custom text field added
-- added Norwegian Bokmål locale
-- moved from local to community code space
-Important: <span>As the code was moved from local to community code space, you have to remove the folder manually /app/code/local/Mage/BankPayment to clean up your existing Magento installation.</span></span></span>
+Deinstallation
+--------------
 
-0.2.0:
-- first public release
+Use [modman](https://github.com/colinmollenhour/modman) to clear all files and symlinks:
+```
+modman clean Ffuenf_BankPayment
+```
+see `uninstall.sql` to clear all entries of this extension from your database.
+
+Development
+-----------
+1. Fork the repository from GitHub.
+2. Clone your fork to your local machine:
+
+        $ git clone https://github.com/USER/Ffuenf_BankPayment
+
+3. Create a git branch
+
+        $ git checkout -b my_bug_fix
+
+4. Make your changes/patches/fixes, committing appropriately
+5. Push your changes to GitHub
+6. Open a Pull Request
+
+License and Author
+------------------
+
+- Author:: Achim Rosenhagen (<a.rosenhagen@ffuenf.de>)
+- Copyright:: 2015, ffuenf
+
+The MIT License (MIT)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

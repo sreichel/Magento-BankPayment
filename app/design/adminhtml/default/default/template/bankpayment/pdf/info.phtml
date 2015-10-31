@@ -1,17 +1,19 @@
 <?php
 /**
- * Magento
+ * Ffuenf_BankPayment extension.
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Open Software License (OSL 3.0)
- * that is available through the world-wide-web at this URL:
- * http://opensource.org/licenses/osl-3.0.php
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
  *
- * @category   Mage
- * @package    Phoenix_BankPayment
- * @copyright  Copyright (c) 2010 Phoenix Medien GmbH & Co. KG (http://www.phoenix-medien.de)
- * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @category   Ffuenf
+ *
+ * @author     Achim Rosenhagen <a.rosenhagen@ffuenf.de>
+ * @copyright  Copyright (c) 2015 ffuenf (http://www.ffuenf.de)
+ * @license    http://opensource.org/licenses/mit-license.php MIT License
  */
 ?>
 <?php if($_info = $this->getInfo()): ?>
@@ -26,24 +28,15 @@
         <?php echo $this->__('Account holder') ?>: <?php echo $_accountHolder ?>
         {{pdf_row_separator}}
         <?php endif; ?>
-        <?php if ($_accountNumber = $_account->getAccountNumber()): ?>
-        <?php echo $this->__('Account number') ?>: <?php echo $_accountNumber ?>
-        {{pdf_row_separator}}
-        <?php endif; ?>
-        <?php if ($_sortCode = $_account->getSortCode()): ?>
-        <?php echo $this->__('Sort code') ?>: <?php echo $_sortCode ?>
-        {{pdf_row_separator}}
-        <?php endif; ?>
         <?php if ($_bankName = $_account->getBankName()): ?>
         <?php echo $this->__('Bank name') ?>: <?php echo $_bankName ?>
         {{pdf_row_separator}}
         <?php endif; ?>
-        <?php if (($_iban = $_account->getIban()) && ($_bic = $_account->getBic())): ?>
-        {{pdf_row_separator}}
-        <?php echo $this->__('International') ?>
-        {{pdf_row_separator}}
+        <?php if ($_iban = $_account->getIban()): ?>
         <?php echo $this->__('IBAN') ?>: <?php echo $_iban ?>
         {{pdf_row_separator}}
+        <?php endif; ?>
+        <?php if ($_bic = $_account->getBic()): ?>
         <?php echo $this->__('BIC') ?>: <?php echo $_bic ?>
         {{pdf_row_separator}}
         <?php endif; ?>

@@ -1,0 +1,12 @@
+<?php
+$_order = $this->getOrder();
+$_countryId = $_order->getShippingAddress()->getData('country_id');
+?>
+<?php if (strcmp($_order->getPayment()->getMethod(), 'bankpayment') == 0): ?>
+    <p style="font-weight:bold;color:#ff0004"><?php echo $this->__('***IMPORTANT***'); ?><br />
+    <?php echo $this->__('Please use the following reference on your bank transfer:'); ?></p>
+    <pre><?php echo $_order->increment_id ?></pre>
+    <?php if ($_countryId == 'CH'): ?>
+        <p style="font-weight:bold;color:#ff0004"><?php echo $this->__('Please be aware of any applicable fees of your bank for international transfers!') ?></p>
+    <?php endif; ?>
+<?php endif; ?>

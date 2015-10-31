@@ -1,0 +1,2 @@
+config:
+  default/payment/bankpayment/enable: 1

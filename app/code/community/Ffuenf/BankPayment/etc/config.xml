@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ffuenf_BankPayment extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @category   Ffuenf
+ *
+ * @author     Achim Rosenhagen <a.rosenhagen@ffuenf.de>
+ * @copyright  Copyright (c) 2015 ffuenf (http://www.ffuenf.de)
+ * @license    http://opensource.org/licenses/mit-license.php MIT License
+*/
+-->
+<config>
+    <modules>
+        <Ffuenf_BankPayment>
+            <version>1.0.0</version>
+        </Ffuenf_BankPayment>
+    </modules>
+    <global>
+        <models>
+            <bankpayment>
+                <class>Ffuenf_BankPayment_Model</class>
+            </bankpayment>
+        </models>
+        <blocks>
+            <bankpayment>
+                <class>Ffuenf_BankPayment_Block</class>
+            </bankpayment>
+        </blocks>
+        <helpers>
+            <bankpayment>
+                <class>Ffuenf_BankPayment_Helper</class>
+            </bankpayment>
+        </helpers>
+    </global>
+    <default>
+        <payment>
+            <bankpayment>
+                <enable>0</enable>
+                <model>bankpayment/bankPayment</model>
+                <order_status>1</order_status>
+                <title>Bank Prepayment</title>
+                <allowspecific>0</allowspecific>
+                <form_block_type>0</form_block_type>
+            </bankpayment>
+        </payment>
+    </default>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Ffuenf_BankPayment>
+                    <files>
+                        <default>Ffuenf_BankPayment.csv</default>
+                    </files>
+                </Ffuenf_BankPayment>
+            </modules>
+        </translate>
+    </adminhtml>
+    <frontend>
+        <layout>
+            <updates>
+                <bankpayment>
+                    <file>bankpayment.xml</file>
+                </bankpayment>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Ffuenf_BankPayment>
+                    <files>
+                        <default>Ffuenf_BankPayment.csv</default>
+                    </files>
+                </Ffuenf_BankPayment>
+            </modules>
+        </translate>
+    </frontend>
+    <default>
+        <payment>
+            <bankpayment>
+                <enable>0</enable>
+            </bankpayment>
+        </payment>
+    </default>
+    <phpunit>
+        <suite>
+            <modules>
+                <Ffuenf_BankPayment/>
+            </modules>
+        </suite>
+    </phpunit>
+</config>
