@@ -37,7 +37,6 @@ class Ffuenf_BankPayment_Model_BankPayment extends Mage_Payment_Model_Method_Abs
      */
     protected function getStoreId()
     {
-        $this->_storeId = $paymentInfo->getQuote()->getStoreId();
         if ($currentOrder = Mage::registry('current_order')) {
             $this->_storeId = $currentOrder->getStoreId();
         } elseif ($paymentInfo instanceof Mage_Sales_Model_Order_Payment) {
