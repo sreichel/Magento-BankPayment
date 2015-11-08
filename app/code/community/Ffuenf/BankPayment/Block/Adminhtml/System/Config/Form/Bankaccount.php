@@ -16,7 +16,7 @@
  * @license    http://opensource.org/licenses/mit-license.php MIT License
  */
 
-class Ffuenf_BankPayment_Block_Adminhtml_BankAccount extends Mage_Adminhtml_Block_System_Config_Form_Field
+class Ffuenf_BankPayment_Block_Adminhtml_System_Config_Form_Bankaccount extends Mage_Adminhtml_Block_System_Config_Form_Field
 {
     protected $_addRowButtonHtml = array();
     protected $_removeRowButtonHtml = array();
