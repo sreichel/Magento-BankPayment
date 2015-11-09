@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of Ffuenf_BankPayment.
 
+## 1.0.2 (November 9, 2015)
+
+* fix array to string conversion
+* fix block definition reference
+
 ## 1.0.1 (November 4, 2015)
 
 * fix error in getStoreId()

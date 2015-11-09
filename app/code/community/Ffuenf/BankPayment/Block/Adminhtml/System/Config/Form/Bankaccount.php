@@ -18,8 +18,8 @@
 
 class Ffuenf_BankPayment_Block_Adminhtml_System_Config_Form_Bankaccount extends Mage_Adminhtml_Block_System_Config_Form_Field
 {
-    protected $_addRowButtonHtml = array();
-    protected $_removeRowButtonHtml = array();
+    protected $_addRowButtonHtml;
+    protected $_removeRowButtonHtml;
 
     /**
      * @param string Varien_Data_Form_Element_Abstract
@@ -101,16 +101,14 @@ class Ffuenf_BankPayment_Block_Adminhtml_System_Config_Form_Bankaccount extends 
      */
     protected function _getAddRowButtonHtml($container, $template, $title = 'Add')
     {
-        if (!isset($this->_addRowButtonHtml[$container])) {
-            $this->_addRowButtonHtml[$container] = $this->getLayout()->createBlock('adminhtml/widget_button')
-                ->setType('button')
-                ->setClass('add ' . $this->_getDisabled())
-                ->setLabel($this->__($title))
-                ->setOnClick("Element.insert($('" . $container . "'), {bottom: $('" . $template . "').innerHTML})")
-                ->setDisabled($this->_getDisabled())
-                ->toHtml();
-        }
-        return $this->_addRowButtonHtml[$container];
+        $this->_addRowButtonHtml = $this->getLayout()->createBlock('adminhtml/widget_button')
+             ->setType('button')
+             ->setClass('add ' . $this->_getDisabled())
+             ->setLabel($this->__($title))
+             ->setOnClick("Element.insert($('" . $container . "'), {bottom: $('" . $template . "').innerHTML})")
+             ->setDisabled($this->_getDisabled())
+             ->toHtml();
+        return $this->_addRowButtonHtml;
     }
 
     /**
