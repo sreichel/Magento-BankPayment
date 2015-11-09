@@ -24,11 +24,17 @@ class Ffuenf_BankPayment_Block_Form extends Mage_Payment_Block_Form
         $this->setTemplate('bankpayment/form.phtml');
     }
 
+    /**
+     * @return string
+     */
     public function getCustomFormBlockType()
     {
         return $this->getMethod()->getConfigData('form_block_type');
     }
 
+    /**
+     * @return string
+     */
     public function getFormCmsUrl()
     {
         $pageUrl = null;
@@ -41,11 +47,17 @@ class Ffuenf_BankPayment_Block_Form extends Mage_Payment_Block_Form
         return $pageUrl;
     }
 
+    /**
+     * @return array
+     */
     public function getAccounts()
     {
         return $this->getMethod()->getAccounts();
     }
 
+    /**
+     * @return string
+     */
     public function getCustomText($addNl2Br = true)
     {
         return $this->getMethod()->getCustomText($addNl2Br);

@@ -37,6 +37,7 @@ class Ffuenf_BankPayment_Model_BankPayment extends Mage_Payment_Model_Method_Abs
      */
     protected function getStoreId()
     {
+        $paymentInfo = $this->getInfoInstance();
         if ($currentOrder = Mage::registry('current_order')) {
             $this->_storeId = $currentOrder->getStoreId();
         } elseif ($paymentInfo instanceof Mage_Sales_Model_Order_Payment) {
@@ -128,7 +129,6 @@ class Ffuenf_BankPayment_Model_BankPayment extends Mage_Payment_Model_Method_Abs
     public function getAccounts()
     {
         if (!$this->_accounts) {
-            $paymentInfo = $this->getInfoInstance();
             $storeId = $this->getStoreId();
             $accounts = unserialize(Mage::getStoreConfig('payment/bankpayment/bank_accounts', $storeId));
             $this->_accounts = array();
