@@ -1,2 +1,5 @@
 .vagrant
+Vagrantfile
+Berksfile
+Berksfile.lock
 travis_key_chunk.sh

@@ -30,7 +30,7 @@
                             <config>
                                 <children>
                                     <bankpayment translate="title" module="bankpayment">
-                                        <title>Ffuenf BankPayment Module</title>
+                                        <title>BankPayment</title>
                                     </bankpayment>
                                 </children>
                             </config>

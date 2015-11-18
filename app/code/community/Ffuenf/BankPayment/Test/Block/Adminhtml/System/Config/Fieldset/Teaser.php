@@ -16,24 +16,19 @@
  * @license    http://opensource.org/licenses/mit-license.php MIT License
  */
 
-class Ffuenf_BankPayment_Helper_Data extends Ffuenf_Common_Helper_Core
+class Ffuenf_BankPayment_Test_Block_Adminhtml_System_Config_Fieldset_Teaser extends EcomDev_PHPUnit_Test_Case_Config
 {
-    const CONFIG_EXTENSION_ACTIVE = 'payment/bankpayment/enable';
 
     /**
-     * Variable for if the extension is active.
+     * Check if the block aliases are returning the correct class names
      *
-     * @var bool
+     * @test
      */
-    protected $_bExtensionActive;
-
-    /**
-     * Check to see if the extension is active.
-     *
-     * @return bool
-     */
-    public function isExtensionActive()
+    public function testBlockAliases()
     {
-        return $this->getStoreFlag(self::CONFIG_EXTENSION_ACTIVE, '_bExtensionActive');
+        $this->assertBlockAlias(
+            'bankpayment/adminhtml_system_config_fieldset_teaser',
+            'Ffuenf_BankPayment_Block_Adminhtml_System_Config_Fieldset_Teaser'
+        );
     }
 }

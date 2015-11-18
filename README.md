@@ -1,3 +1,5 @@
+<a href="http://www.ffuenf.de" title="ffuenf - code • design • e-commerce"><img src="https://github.com/ffuenf/Ffuenf_Common/blob/master/skin/adminhtml/default/default/ffuenf/ffuenf.png" alt="ffuenf - code • design • e-commerce" /></a>
+
 Ffuenf_BankPayment
 ==================
 [![GitHub tag](https://img.shields.io/github/tag/ffuenf/Ffuenf_BankPayment.svg)][tag]
@@ -6,7 +8,6 @@ Ffuenf_BankPayment
 [![Code Coverage](https://scrutinizer-ci.com/g/ffuenf/Ffuenf_BankPayment/badges/coverage.png)][code_coverage]
 [![Code Climate](https://codeclimate.com/github/ffuenf/Ffuenf_BankPayment/badges/gpa.svg)][codeclimate_gpa]
 [![PayPal Donate](https://img.shields.io/badge/paypal-donate-blue.svg)][paypal_donate]
-
 [tag]: https://github.com/ffuenf/Ffuenf_BankPayment
 [travis]: https://travis-ci.org/ffuenf/Ffuenf_BankPayment
 [code_quality]: https://scrutinizer-ci.com/g/ffuenf/Ffuenf_BankPayment
@@ -49,6 +50,13 @@ _show custom text in order confirmation emails for specific billing countries_
 This might be useful if customers from foreign countries doesn't pay attention to additional fees for international transfers.
 See template/bankpayment/email/message.phtml for a reference implementation.
 
+Compatibility
+-------------
+
+This Extension is a fork of [Magento_BankPayment](https://github.com/PHOENIX-MEDIA/Magento-BankPayment) and uses the same namespace for its configuration.
+In older versions of Magento there may be also a Mage_BankPayment core extension which is not compatible.
+Please do not use this extension in any combination with the above!
+
 Platform
 --------
 
@@ -66,21 +74,14 @@ Other versions are assumed to work.
 Requirements
 ------------
 
-|                                                                     | PHP 5.3        | PHP 5.4        | PHP 5.5         | PHP 5.6       | PHP 7.0       |
-| ------------------------------------------------------------------- | -------------- | -------------- | --------------- | ------------- | ------------- |
-| [EOL](https://secure.php.net/supported-versions.php) / STABLE / RC  | EOL            | EOL            | STABLE          | **STABLE**        | RC            |
+|                                                                     | PHP 5.3        | PHP 5.4        | PHP 5.5           | PHP 5.6       | PHP 7.0       |
+| ------------------------------------------------------------------- | -------------- | -------------- | ----------------- | ------------- | ------------- |
+| [EOL](https://secure.php.net/supported-versions.php) / STABLE / RC  | EOL            | EOL            | STABLE            | **STABLE**    | RC            |
 | automated tests on [travis]                                         | allow failure  | allow failure  | **required pass** | allow failure | allow failure |
 
 Magento Community Edition officially supports PHP 5.4 and PHP 5.5.
 
 Non-official compatibility to PHP 5.6 may be reached by following the tips on [Use of iconv.internal_encoding is deprecated](https://magento.stackexchange.com/questions/34015/magento-1-9-php-5-6-use-of-iconv-internal-encoding-is-deprecated).
-
-Compatibility
--------------
-
-This Extension is a fork of [Magento_BankPayment](https://github.com/PHOENIX-MEDIA/Magento-BankPayment) and uses the same namespace for its configuration.
-In older versions of Magento there may be also a Mage_BankPayment core extension which is not compatible.
-Please do not use this extension in any combination with the above!
 
 Installation
 ------------
@@ -88,6 +89,7 @@ Installation
 Use [modman](https://github.com/colinmollenhour/modman) to install:
 ```
 modman init
+modman clone https://github.com/ffuenf/Ffuenf_Common
 modman clone https://github.com/ffuenf/Ffuenf_BankPayment
 ```
 

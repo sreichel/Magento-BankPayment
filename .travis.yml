@@ -21,12 +21,12 @@ env:
   - MAGENTO_VERSION=magento-mirror-1.7.0.2
   - MAGENTO_VERSION=magento-mirror-1.6.2.0
   global:
-  - secure: YD4LBUDzWq8gAcfGhpyEMhvbfuw5BPrnyVTV+KclKUQOWtYY1OtuTnzdhCE+N/dEMEFB1TWVKSN1wXD8NHSXCDy1MTytB4+SFY8jEjYhW4hzMwyPEhVqSn+gxmFywcvzsbiVZKxU0F1FisrYT+uvcjm6Slfrmsy8Vjd0OsbldQc=
-  - secure: MiWZyk+O3O1cu8N0sEVA6c5paMVGgrw90As8eFkueqZoNfLqBA8HpP7d1AHky1EACyZipBav8SbM4ftV2tQVJKrl0cVXspqGI3d8DJjvyqlEYDDJwTyy/gMKYX9Y55MhYUAc7ZlwywdhgylCmLIxUGMsU8oXDUCSg9CnODswEBQ=
-  - secure: VODOGsZQI8XcSek40K1HLWADIlmEXrQaswP9DUcjRbsBaHUgzv2Rvg+qYif4wQKARf5l7mNgY9P7yWjs9mAtxVN9kaV2gaCmR6V0k1etPxztA6zJoLE8hHHmm+xVcJTCv1aLsnm2EbYiSIwiWIDWMFxAtaLU5uhf03hKm/vRmdg=
+  - secure: k+X0QiEHoaT8mLoAkfu11NfmR3UzwWNKdXyT4i5OPqVmS4kqkFkBGUqDTEMUQIwWNbiVCGh3eqpqYAds+YCKJwbjXwdwJTa05bc+Bz5DHaNUOkpUQ9CuR/+qYjLpBz6kgf7a/W7UX1WiRP6RIQaEvaVXJUSgYLsQrGLfTg7AH7k=
+  - secure: ACtpRDkKOoceH5Na+qsxcpJrbFS1DxqlWoQ/qUeBwSONIlAe4RCnsxQnit+uyys98w5UzogVw7rm2b866fXcUeo4s0agfgJXNuiIk8wq0Ub1MnAQpG9z8rq2n7rhqgVnYVPRnS9NKkq/GauaIn54KesMxyqSJZRJ+ehQdCcftXk=
+  - secure: Hkvbn7maeJ/D0OHOG8neqT8KChSaQWo4yJDuAfQSPdKqvjsT9NmQCqhFApXSfjZr3B0TZ07EmwIK6ka70MZRj3/jBcnZOHMLOwKPWLCnL1EwukM6a0Px/I0xOnraM7ri4PvFxS1xDN47x/6sypRnpsRo9f6e7bq45xfwTs/Ps5w=
 script:
 - curl -sSL https://raw.githubusercontent.com/ffuenf/MageTestStand/master/setup.sh
   | bash
 notifications:
   slack:
-    secure: mfQXhgIJSeRwMdRpTE4kT99rwGEPZt/15d6gi8HXcamNchcoWQ5dQ04NxuYrWG8z8IpFmrXi1dCoQrP+oPHpQZzF6b2+IE7Eo0JMP8X9/j7VLrn/NKCS2QRYgR5psHbEICx0/ObCFXwHLB+cEAzvbMsArQVYdM15qQFOAl/ijhg=
+    secure: m9X8fowtqS/fLGV8+31QCTuCAuaQe9HllVRicRxwz+kDh2My5d/VT5CWq8dF5hsyzcPV165OtKRbR8ulk+qapLBxLC30V+EZTuKPmxZLPsGvSVkvbcp8PsbkYj2t4AV3iyk4OqSAA4jrF1TWxbUWPFDmSeuI8mTDNGR85BT4eRM=

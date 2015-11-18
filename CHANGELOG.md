@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of Ffuenf_BankPayment.
 
+## 1.0.3 (November 18, 2015)
+
+* add dependency to [Ffuenf_Common](https://github.com/ffuenf/Ffuenf_Common)
+* common extension structure
+* add more tests
+
 ## 1.0.2 (November 9, 2015)
 
 * fix array to string conversion
