@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of Ffuenf_BankPayment.
 
+## 1.0.5 (Unreleased)
+
+## 1.0.4 (November 22, 2015)
+
+* add uninstallation via [Ffuenf_MageTrashApp](https://github.com/ffuenf/Ffuenf_MageTrashApp)
+
 ## 1.0.3 (November 18, 2015)
 
 * add dependency to [Ffuenf_Common](https://github.com/ffuenf/Ffuenf_Common)

@@ -8,25 +8,51 @@ php:
 - 7.0
 matrix:
   allow_failures:
+  - env: MAGENTO_VERSION=magento-ce-1.9.1.1
+  - env: MAGENTO_VERSION=magento-ce-1.9.1.0
   - php: 5.3
   - php: 5.4
+    env: MAGENTO_VERSION=magento-ce-1.9.2.2
+  - php: 5.4
+    env: MAGENTO_VERSION=magento-ce-1.9.2.1
+  - php: 5.4
+    env: MAGENTO_VERSION=magento-ce-1.9.2.0
   - php: 5.6
+    env: MAGENTO_VERSION=magento-mirror-1.8.1.0
   - php: 7.0
+    env: MAGENTO_VERSION=magento-mirror-1.8.1.0
+  fast_finish: true
 env:
+  global:
+  - APPNAME=Ffuenf_BankPayment
+  - secure: oYx65w7rowDIS+9yzBclZr7chRWSV+2a5OVVyio3wyLUDnibmN2qjKV+2o+vuocukc7H/Cy6gKy8wkWx0tHDlmEB3EDMq76EXJDD+nGN4Phv18dUUCEAcRMI2muS/iWoDGuCpgu2yKWN4gHNQnftrWKkpQHTgyTUKVZQxUfzlew=
+  - secure: pfrPlQqx+B7ZbX4C46uI+2nhHl2GNjaZPJbTHItbIFbyGYh3CpDRU+SJp1RFZhncegLBbRq/G3jYSlZTmKcE/yHweMxv6DsJhLBYEsSu4i2R6DfLLTKEtTHteAD5H9aX8Xxji+zRR/uLFnazxLYZMHn69HH1DRMTnY9BuPvwzwE=
+  - secure: i7gQ40U8vp/m5IqxrsPjadArkyexdptucxiwFpIzWXOxVhzayvS4WQCgN2slwB+iKnFZgHTqt5ZMaHHBJMs6F9Uwz4i/ofJamhxPyLrIosUi1rGSLhSrpmD4yt/em7afxahKS88h7Wdp82DzNJBs5OjfrnlKhhvmJ/38ybbykjU=
   matrix:
   - MAGENTO_VERSION=magento-ce-1.9.2.2
   - MAGENTO_VERSION=magento-ce-1.9.2.1
   - MAGENTO_VERSION=magento-ce-1.9.2.0
+  - MAGENTO_VERSION=magento-ce-1.9.1.1
+  - MAGENTO_VERSION=magento-ce-1.9.1.0
   - MAGENTO_VERSION=magento-mirror-1.8.1.0
   - MAGENTO_VERSION=magento-mirror-1.7.0.2
   - MAGENTO_VERSION=magento-mirror-1.6.2.0
-  global:
-  - secure: k+X0QiEHoaT8mLoAkfu11NfmR3UzwWNKdXyT4i5OPqVmS4kqkFkBGUqDTEMUQIwWNbiVCGh3eqpqYAds+YCKJwbjXwdwJTa05bc+Bz5DHaNUOkpUQ9CuR/+qYjLpBz6kgf7a/W7UX1WiRP6RIQaEvaVXJUSgYLsQrGLfTg7AH7k=
-  - secure: ACtpRDkKOoceH5Na+qsxcpJrbFS1DxqlWoQ/qUeBwSONIlAe4RCnsxQnit+uyys98w5UzogVw7rm2b866fXcUeo4s0agfgJXNuiIk8wq0Ub1MnAQpG9z8rq2n7rhqgVnYVPRnS9NKkq/GauaIn54KesMxyqSJZRJ+ehQdCcftXk=
-  - secure: Hkvbn7maeJ/D0OHOG8neqT8KChSaQWo4yJDuAfQSPdKqvjsT9NmQCqhFApXSfjZr3B0TZ07EmwIK6ka70MZRj3/jBcnZOHMLOwKPWLCnL1EwukM6a0Px/I0xOnraM7ri4PvFxS1xDN47x/6sypRnpsRo9f6e7bq45xfwTs/Ps5w=
 script:
 - curl -sSL https://raw.githubusercontent.com/ffuenf/MageTestStand/master/setup.sh
   | bash
+before_deploy:
+- gem install mime-types -v 2.6.2
+deploy:
+  provider: releases
+  file:
+  - "${APPNAME}-${TRAVIS_TAG}.zip"
+  - "${APPNAME}-${TRAVIS_TAG}.tar.gz"
+  skip_cleanup: true
+  on:
+    branch: master
+    tags: true
+  api_key:
+    secure: Pnc1BI70jo9ksGzR67UngBNkvxPZCUBE5dVlGNdf+E9fOlyIz1OmC0T/7T6sSnW+KqBKFtRkYrJYbxWrTV+Mk/WuHfikvgvI030kPjugXzXoY6nK4ekWOoG7JdEmxO/B5e9raDDhEMugyvAeu+XAEToMD/+dBV1TKIB2v78n3hU=
 notifications:
   slack:
-    secure: m9X8fowtqS/fLGV8+31QCTuCAuaQe9HllVRicRxwz+kDh2My5d/VT5CWq8dF5hsyzcPV165OtKRbR8ulk+qapLBxLC30V+EZTuKPmxZLPsGvSVkvbcp8PsbkYj2t4AV3iyk4OqSAA4jrF1TWxbUWPFDmSeuI8mTDNGR85BT4eRM=
+    secure: ZzEwC0AJhUc4zAOJbnQJTgdP73WplIZx8Wl+QGsdVSRUhjKXtbwcZXU+ZpKivDDinK5WrAG9iSbuISr1NmOa+taZlBWi37ML6M/5BtYre6sEyCdosgF6didXP+RFplgcTqHAhTQpcVk6Ly08kfCp9Zp3Subyjj6qStuS8aQsc78=
