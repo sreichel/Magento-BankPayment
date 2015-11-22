@@ -1,0 +1,17 @@
+app/code/community/Ffuenf/BankPayment
+app/design/adminhtml/default/default/template/bankpayment
+app/design/frontend/base/default/layout/bankpayment.xml
+app/design/frontend/base/default/template/bankpayment
+app/etc/modules/Ffuenf_BankPayment.xml
+app/locale/da_DK/Ffuenf_BankPayment.csv
+app/locale/de_DE/Ffuenf_BankPayment.csv
+app/locale/el_GR/Ffuenf_BankPayment.csv
+app/locale/en_US/Ffuenf_BankPayment.csv
+app/locale/es_ES/Ffuenf_BankPayment.csv
+app/locale/fr_FR/Ffuenf_BankPayment.csv
+app/locale/it_IT/Ffuenf_BankPayment.csv
+app/locale/ja_JP/Ffuenf_BankPayment.csv
+app/locale/nb_NO/Ffuenf_BankPayment.csv
+app/locale/nl_NL/Ffuenf_BankPayment.csv
+app/locale/pl_PL/Ffuenf_BankPayment.csv
+app/locale/pt_BR/Ffuenf_BankPayment.csv

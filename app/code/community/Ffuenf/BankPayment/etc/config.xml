@@ -20,7 +20,7 @@
 <config>
     <modules>
         <Ffuenf_BankPayment>
-            <version>1.0.3</version>
+            <version>1.0.4</version>
         </Ffuenf_BankPayment>
     </modules>
     <global>
@@ -39,6 +39,13 @@
                 <class>Ffuenf_BankPayment_Helper</class>
             </bankpayment>
         </helpers>
+        <resources>
+            <ffuenf_bankpayment_setup>
+                <setup>
+                    <module>Ffuenf_BankPayment</module>
+                </setup>
+            </ffuenf_bankpayment_setup>
+        </resources>
     </global>
     <default>
         <payment>
@@ -88,6 +95,9 @@
             </bankpayment>
         </payment>
     </default>
+    <uninstall>
+        <filename>uninstall.txt</filename>
+    </uninstall>
     <phpunit>
         <suite>
             <modules>
