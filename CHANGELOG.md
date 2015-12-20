@@ -2,7 +2,10 @@
 
 This file is used to list changes made in each version of Ffuenf_BankPayment.
 
-## 1.0.5 (Unreleased)
+## 1.0.5 (December 20, 2015)
+
+* fix dependency to Ffuenf_Common
+* update travis build-matrix
 
 ## 1.0.4 (November 22, 2015)
 

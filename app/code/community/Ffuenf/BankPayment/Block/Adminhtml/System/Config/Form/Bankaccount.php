@@ -49,16 +49,16 @@ class Ffuenf_BankPayment_Block_Adminhtml_System_Config_Form_Bankaccount extends 
         $allowedCurrencies = Mage::getModel('directory/currency')->getConfigAllowCurrencies();
         $html = '<li><fieldset>';
         $html .= '<label>' . $this->__('BIC') . '</label><br/>';
-        $html .= '<input class="input-text" type="text" name="' . $this->getElement()->getName() . '[bic][]" value="' . $this->_getValue('bic/'.$i) . '" ' . $this->_getDisabled() . ' />';
-        $html .= '<label>' . $this->__('Account holder').'</label><br/>';
+        $html .= '<input class="input-text" type="text" name="' . $this->getElement()->getName() . '[bic][]" value="' . $this->_getValue('bic/' . $i) . '" ' . $this->_getDisabled() . ' />';
+        $html .= '<label>' . $this->__('Account holder') . '</label><br/>';
         $html .= '<input class="input-text" type="text" name="' . $this->getElement()->getName() . '[account_holder][]" value="' . $this->_getValue('account_holder/' . $i) . '" ' . $this->_getDisabled() . ' />';
-        $html .= '<label>' . $this->__('Bank name').'</label><br/>';
+        $html .= '<label>' . $this->__('Bank name') . '</label><br/>';
         $html .= '<input class="input-text" type="text" name="' . $this->getElement()->getName() . '[bank_name][]" value="' . $this->_getValue('bank_name/' . $i) . '" ' . $this->_getDisabled() . ' />';
-        $html .= '<label>' . $this->__('IBAN').'</label><br/>';
+        $html .= '<label>' . $this->__('IBAN') . '</label><br/>';
         $html .= '<input class="input-text" type="text" name="' . $this->getElement()->getName() . '[iban][]" value="' . $this->_getValue('iban/' . $i) . '" ' . $this->_getDisabled() . ' />';
-        $html .= '<label>' . $this->__('Currency').'</label><br/>';
+        $html .= '<label>' . $this->__('Currency') . '</label><br/>';
         foreach ($allowedCurrencies as $k => $v) {
-            $html .= '<input type="checkbox" name="' . $this->getElement()->getName() . '[currencies][' . $i . '][]" value="' . $v . '" ' . (is_array($this->_getValue('currencies/' . $i)) ? in_array($v, $this->_getValue('currencies/' . $i)) ? 'checked=checked':'' : '') . ' />' . $v . '<br />';
+            $html .= '<input type="checkbox" name="' . $this->getElement()->getName() . '[currencies][' . $i . '][]" value="' . $v . '" ' . (is_array($this->_getValue('currencies/' . $i)) ? in_array($v, $this->_getValue('currencies/' . $i)) ? 'checked=checked' : '' : '') . ' />' . $v . '<br />';
         }
         $html .= '<br />&nbsp;<br />';
         $html .= $this->_getRemoveRowButtonHtml();
@@ -80,7 +80,7 @@ class Ffuenf_BankPayment_Block_Adminhtml_System_Config_Form_Bankaccount extends 
      */
     protected function _getValue($key)
     {
-        return $this->getElement()->getData('value/'.$key);
+        return $this->getElement()->getData('value/' . $key);
     }
 
     /**
@@ -90,7 +90,7 @@ class Ffuenf_BankPayment_Block_Adminhtml_System_Config_Form_Bankaccount extends 
      */
     protected function _getSelected($key, $value)
     {
-        return $this->getElement()->getData('value/'.$key) == $value ? 'selected="selected"' : '';
+        return $this->getElement()->getData('value/' . $key) == $value ? 'selected="selected"' : '';
     }
 
     /**
@@ -102,12 +102,12 @@ class Ffuenf_BankPayment_Block_Adminhtml_System_Config_Form_Bankaccount extends 
     protected function _getAddRowButtonHtml($container, $template, $title = 'Add')
     {
         $this->_addRowButtonHtml = $this->getLayout()->createBlock('adminhtml/widget_button')
-             ->setType('button')
-             ->setClass('add ' . $this->_getDisabled())
-             ->setLabel($this->__($title))
-             ->setOnClick("Element.insert($('" . $container . "'), {bottom: $('" . $template . "').innerHTML})")
-             ->setDisabled($this->_getDisabled())
-             ->toHtml();
+                ->setType('button')
+                ->setClass('add ' . $this->_getDisabled())
+                ->setLabel($this->__($title))
+                ->setOnClick("Element.insert($('" . $container . "'), {bottom: $('" . $template . "').innerHTML})")
+                ->setDisabled($this->_getDisabled())
+                ->toHtml();
         return $this->_addRowButtonHtml;
     }
 
