@@ -17,6 +17,6 @@
  * @copyright  Copyright (c) 2010 Phoenix Medien GmbH & Co. KG (http://www.phoenix-medien.de)
  */
 
-class Phoenix_BankPayment_Helper_Data extends Mage_Core_Helper_Abstract {
-
+class Phoenix_BankPayment_Helper_Data extends Mage_Core_Helper_Abstract
+{
 }

@@ -1,10 +1,32 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Phoenix
+ * @package    Phoenix_BankPayment
+ * @copyright  Copyright (c) 2008-2009 Andrej Sinicyn, Mik3e
+ * @copyright  Copyright (c) 2010 Phoenix Medien GmbH & Co. KG (http://www.phoenix-medien.de)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
 <config>
     <modules>
         <Phoenix_BankPayment>
             <version>1.1.0</version>
         </Phoenix_BankPayment>
     </modules>
+
     <global>
         <models>
             <bankpayment>
@@ -37,8 +59,9 @@
             <bankpayment>
                 <class>Phoenix_BankPayment_Helper</class>
             </bankpayment>
-        </helpers>        
+        </helpers>
     </global>
+
     <default>
         <payment>
             <bankpayment>
@@ -51,6 +74,7 @@
             </bankpayment>
         </payment>
     </default>
+
     <adminhtml>
         <translate>
             <modules>
@@ -62,6 +86,7 @@
             </modules>
         </translate>
     </adminhtml>
+
     <frontend>
         <translate>
             <modules>

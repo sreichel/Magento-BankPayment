@@ -22,12 +22,12 @@ class Phoenix_BankPayment_Block_Info extends Mage_Payment_Block_Info
     protected function _construct()
     {
         parent::_construct();
-        $this->setTemplate('bankpayment/info.phtml');
+        $this->setTemplate('phoenix_bankpayment/info.phtml');
     }
 
     public function toPdf()
     {
-        $this->setTemplate('bankpayment/pdf/info.phtml');
+        $this->setTemplate('phoenix_bankpayment/pdf/info.phtml');
         return $this->toHtml();
     }
 

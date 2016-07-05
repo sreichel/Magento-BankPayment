@@ -21,7 +21,7 @@ class Phoenix_BankPayment_Block_Form extends Mage_Payment_Block_Form
     protected function _construct()
     {
         parent::_construct();
-        $this->setTemplate('bankpayment/form.phtml');
+        $this->setTemplate('phoenix_bankpayment/form.phtml');
     }
 
     public function getCustomFormBlockType()
